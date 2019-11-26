@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="validaciones.js"></script>
     <title>Registro</title>
 </head>
 <body style="background-color:rgb(218, 253, 253);">
 <h2 style="font-family: fantasy;" style="color: blue;">Formulario de registro</h2>
 
-<form id="formulario" method="POST" action="../controladores/crear_usuario.php" onsubmit=" return  validaciones()">
+<form id="formulario" method="POST" action="../controladores/crear_usuario.php" onsubmit=" return  validarCamposObligatorios()" align="center">
     <label for ="cedula">Cedula </label>
-    <input type="text" id ="cedula" name= "cedula" value= "" placeholder="Ingrese el número de la céduala.." required> 
+    <input type="text" id ="cedula" name= "cedula" value= "" placeholder="Ingrese el número de la céduala.." required onkeypress="return soloNumeros(event);" > 
     <span id="mensajeSpanCedula" class="error"></span>
     <br>
 
     <label for= "nombre"> Nombre</label>
-    <input type="text" name="nombre" id="nombre" value="" placeholder="Ingrese sus dos nombres "required>
+    <input type="text" name="nombre" id="nombre" value="" placeholder="Ingrese sus dos nombres "required  onkeypress="return soloLetras(event);" onKeyUp="this.value = this.value.toUpperCase();" maxlength="28">
     <span id="mensajeSpanNombre" class="error"></span>
     <br>
 
     <label for="apellido">Apellido</label>
-    <input type="text" name="apellido" id="apellido" value="" placeholder="Ingrese sus dos apellidos "required >
+    <input type="text" name="apellido" id="apellido" value="" placeholder="Ingrese sus dos apellidos "required onkeypress="return soloLetras(event);" onKeyUp="this.value = this.value.toUpperCase();" maxlength="28">
     <span id="mensajeSpanApellido" class="error"></span>
     <br>
 
@@ -31,11 +31,11 @@
     <br>
 
     <label for="telefono">Teléfono</label>
-    <input type="text" name="telefono" id="telefono" value="" placeholder="Ingrese su número de télefono " required>
+    <input type="text" name="telefono" id="telefono" value="" placeholder="Ingrese su número de télefono " required onkeypress="return soloNumeros(event);" >
     <br>
 
     <label for="fecha">Fecha Nacimiento</label>
-    <input type="date" name="fechaNacimiento" id="fechaNacimiento" value="" placeholder="Ingrese su fecha de Nacimiento ..." required >
+    <input type="date" name="fechaNacimiento" id="fechaNacimiento"  placeholder="Ingrese su fecha de Nacimiento ..." required >
     <br>
 
     <label for="correo">Correo Electrónico</label>
@@ -45,9 +45,18 @@
     <label for="contrasenia">Contraseña</label>
     <input type="password" name="contrasenia" id="contrasenia" value="" placeholder="Ingrese su contraseña" required>
     <br>
-
+    <label for="rol">Rol</label>
+    <label for="rol1">User</label>
+    <input type="checkbox" name="rol1" id="rol1" value="User" required onclick=" validarChecbock()">
+    <label for="rol2">Admin</label>
+    <input type="checkbox" name="rol2" id="rol2" value="Admin" required onclick="validarChecbock()">
+    <br>
+    <br>
     <input type="submit" name="crear" id="crear" value="Aceptar">  
-    <input type="reset" name="cancelar" id="canclear" value="Cancelar">
+    <input type="reset" name="cancelar" id="cancelar" value="Cancelar">
+    <br>
+    <br>
+    <a href="login.html">Ya estoy registrado</a>
 </form>
 </body>
 </html>

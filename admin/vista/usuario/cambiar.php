@@ -7,16 +7,46 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+    <div>
+            <?php
+            session_start();
+            $cedula = $_GET["codigo"];
+            // echo "$cedula";
+            include '../../../config/conexionBD.php';
+            echo "</br>";
+            $sql = "SELECT * FROM usuario WHERE menu_codigo = '$cedula' ";
+            $result = $conn->query($sql);
+            $rl = mysqli_fetch_assoc($result);
+            $rlt = $_GET["cone"];
+            //  echo "$rlt";
+            $ft = "'" . $rlt . "'";
+            //  echo $ft;
+            ?>
+            <header>
+                <nav>
+                    <ul>
+                        <li> <a href="index.php?cone=<?php echo "$ft"; ?>">Atras</a> </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+ 
         <?php
+     
         $codigo = $_GET["codigo"];
-        $sql = "SELECT * FROM usuario WHERE menu_codigo=$codigo";
             include '../../../config/conexionDB.php';   
+           echo "<br>";
+           $sql = "SELECT * FROM usuario WHERE menu_codigo=$codigo";
             $result = $conn->query($sql);
                 if ($result->num_rows>0) {
                     while ($row = $result->fetch_assoc()){
                   ?>  
-                    <form id="formularioCambiar" method="POST" action="../../controlador/usuario/cambiar.php">
+                  <h2>Editar datos del usuario</h2>
+                  <div>
+                  <form id="formularioCambiar" method="POST" action="../../controlador/usuario/cambiar.php">
                             <input type="hidden" name="codigo" id="codigo" value="<?php echo $codigo?>">
+                            <input type="hidden" id="usuco" name="usuco" value="<?php echo $ft ?>" />
+
                             <label for="cedula">Cedula</label>
                             <input type="text" name="cedula" id= "cedula" value="<?php echo $row["menu_cedula"];?>" required placeholder="Ingrese su cedula" >
                             <br>
@@ -42,11 +72,13 @@
                             <input type="reset" name="cancelar" id="cancelar" value="Cancelar">
     
                      </form>
+                  </div> 
+                 
                     <?php
                     }
                 } else{
 
-                    echo "<p>Ha ocurrido un error inesperado </p>";
+                    echo "<p> colspan='10'> Ha ocurrido un error inesperado </p>";
                     echo "<p>".mysqli_error($conn)."</p>";
                 }
                 $conn->close();
