@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+
+ <form id="formularioLogin" method="POST" action="../controladores/login.php">
+
+<label for="correo">Correo Electrónico</label>
+<input type="email" id="correo" name="correo" value="" placeholder="Ingrese el correo..." required>
+<br>
+<label for="contrasenia">Contraseña</label>
+<input type="password" id="contrasenia" name="contrasenia" value="" placeholder="Ingrese su contrasena" required>
+<br>
+<input type="submit" name="login" id="login" value="Iniciar sesión">
+</form>    
+</body>
+</html>

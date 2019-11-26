@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src=""></script>
+    <title>Registro</title>
+</head>
+<body style="background-color:rgb(218, 253, 253);">
+<h2 style="font-family: fantasy;" style="color: blue;">Formulario de registro</h2>
+
+<form id="formulario" method="POST" action="../controladores/crear_usuario.php" onsubmit=" return  validaciones()">
+    <label for ="cedula">Cedula </label>
+    <input type="text" id ="cedula" name= "cedula" value= "" placeholder="Ingrese el número de la céduala.." required> 
+    <span id="mensajeSpanCedula" class="error"></span>
+    <br>
+
+    <label for= "nombre"> Nombre</label>
+    <input type="text" name="nombre" id="nombre" value="" placeholder="Ingrese sus dos nombres "required>
+    <span id="mensajeSpanNombre" class="error"></span>
+    <br>
+
+    <label for="apellido">Apellido</label>
+    <input type="text" name="apellido" id="apellido" value="" placeholder="Ingrese sus dos apellidos "required >
+    <span id="mensajeSpanApellido" class="error"></span>
+    <br>
+
+    <label for="direccion">Dirección</label>
+    <input type="text" name="direccion" id="direccion" value="" placeholder="Ingrese su dirección " required >
+    <br>
+
+    <label for="telefono">Teléfono</label>
+    <input type="text" name="telefono" id="telefono" value="" placeholder="Ingrese su número de télefono " required>
+    <br>
+
+    <label for="fecha">Fecha Nacimiento</label>
+    <input type="date" name="fechaNacimiento" id="fechaNacimiento" value="" placeholder="Ingrese su fecha de Nacimiento ..." required >
+    <br>
+
+    <label for="correo">Correo Electrónico</label>
+    <input type="email" name="correo" id="correo" value="" placeholder="Ingrese su correo electrónico" required>
+    <br>
+
+    <label for="contrasenia">Contraseña</label>
+    <input type="password" name="contrasenia" id="contrasenia" value="" placeholder="Ingrese su contraseña" required>
+    <br>
+
+    <input type="submit" name="crear" id="crear" value="Aceptar">  
+    <input type="reset" name="cancelar" id="canclear" value="Cancelar">
+</form>
+</body>
+</html>
