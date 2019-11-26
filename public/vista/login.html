@@ -7,16 +7,26 @@
     <title>Inicio de sesión</title>
 </head>
 <body>
+    <h2>LOGING</h2>
+    <div>
+        <nav>
+            <ul>
+                <li> <a href='../vista/crear_usuario.html'>Regresar</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+            <form id="formularioLogin" method="POST" action="../controladores/login.php">
 
- <form id="formularioLogin" method="POST" action="../controladores/login.php">
-
-<label for="correo">Correo Electrónico</label>
-<input type="email" id="correo" name="correo" value="" placeholder="Ingrese el correo..." required>
-<br>
-<label for="contrasenia">Contraseña</label>
-<input type="password" id="contrasenia" name="contrasenia" value="" placeholder="Ingrese su contrasena" required>
-<br>
-<input type="submit" name="login" id="login" value="Iniciar sesión">
-</form>    
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" value="" placeholder="Ingrese el correo..." required>
+            <br>
+            <label for="contrasenia">Contraseña</label>
+            <input type="password" id="contrasenia" name="contrasenia" value="" placeholder="Ingrese su contrasena" required>
+            <br>
+            <input type="submit" name="login" id="login" value="Iniciar sesión">
+            </form>    
+    </div>
+ 
 </body>
 </html>

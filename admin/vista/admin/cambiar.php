@@ -25,7 +25,7 @@
             <header>
                 <nav>
                     <ul>
-                        <li> <a href="index.php?conne=<?php echo "$ft"; ?>">Atras</a> </li>
+                        <li> <a href="index.php?cone=<?php echo "$ft"; ?>">Atras</a> </li>
                     </ul>
                 </nav>
             </header>
@@ -65,12 +65,12 @@
                             <label for="fechaNacimiento">Fecha Nacimiento</label>
                             <input type="date" name="fechaNacimiento" id= "fechaNacimiento" value="<?php echo $row["menu_fecha_nacimiento"];?>" required placeholder="Ingrese su fecha de nacimiento" >
                             <br>
-                            <label for="correo">Correo Electrónico</label>
+                            <label for="nombre">Correo Electrónico</label>
                             <input type="email" name="correo" id= "correo" value="<?php echo $row["menu_correo"];?>" required placeholder="Ingrese su correo electrónico" >
                             <br>
                             <input type="submit" name="modificar" id="modificar" value="Modificar">
-                            <button type="button" class="btn btn-default"> <a href="index.php?conne=<?php echo "$ft"; ?>">Cancelar</a></button>
-
+                            <input type="reset" name="cancelar" id="cancelar" value="Cancelar">
+    
                      </form>
                   </div> 
                  
@@ -79,7 +79,7 @@
                 } else{
 
                     echo "<p> colspan='10'> Ha ocurrido un error inesperado </p>";
-                    echo "<p>".mysqli_error($conn)."</p>";
+                    echo "<p>". mysqli_error($conn) . "</p>";
                 }
                 $conn->close();
                 ?>

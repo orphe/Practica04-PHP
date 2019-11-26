@@ -7,37 +7,46 @@
 <body>
     <table style="width:100%" border>
         <tr>
-            <th>FECHA</th>
-            <th>DESTINATARIO</th>
             <th>REMITENTE</th>
+            <th>DESTINATARIO</th>
+            <th>FECHA</th>
+            <th>LUGAR</th>
+            <th>LATITUD</th>
+            <th>LONGITUD</th>
             <th>MOTIVO</th>
-            
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>OBSERVACIONES</th>
+
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
         </tr>
         <?php
-        include '../../config/conexionBD.php';
+        include '../../config/conexionDB.php';
         
-        $cone = $_GET["cedula"];
+        $conne = $_GET["motivo"];
         //   echo $cone;
-        $tm = strlen($cone);
+        $tm = strlen($conne);
         //   echo "mensaje- --- --";
-        $ref = substr($cone, 1, $tm - 2);
+        $ref = substr($conne, 1, $tm - 2);
         //   echo $ref;
         $sql = "SELECT * FROM mensaje WHERE men_destinatario ='$ref' AND men_eliminado = '$vr' ORDER BY men_fecha DESC;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "   <td>" . $row["men_fecha"] . "</td>";
-                echo "   <td>" . $row['men_remitente'] . "</td>";
-                echo "   <td>" . $row['men_asunto'] . "</td>";
-                echo "   <td>" . "<a href='../../../public/vista/leer_mensaje.php?cone=" . $ref . "&codigo=" . $row['men_codigo'] . "'>Leer</a>" . "</td>";
+                echo "   <td>" . $row['reunion_remitente'] . "</td>";
+                echo "   <td>" . $row['reunion_destinatario'] . "</td>";
+                echo "   <td>" . $row["reunion_fecha"] . "</td>";
+                echo "   <td>" . $row['reunion_lugar'] . "</td>";
+                echo "   <td>" . $row['reunion_latitud'] . "</td>";
+                echo "   <td>" . $row['reunion_longitud'] . "</td>";
+                echo "   <td>" . $row['reunion_motivo'] . "</td>";
+                echo "   <td>" . $row['reunion_observaciones'] . "</td>";
+                echo "   <td>" . "<a href='../../../public/vista/revisarReunion.php?conne=" . $ref . "&codigo=" . $row['reunion_codigo'] . "'>Leer</a>" . "</td>";
                 echo "</tr>";
             }
         } else {
             echo "<tr>";
-            echo " <td colspan='5'> No existe Usuarios </td>";
+            echo " <td colspan='7'> No existe Usuarios </td>";
             echo "</tr>";
         }
 

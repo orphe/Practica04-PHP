@@ -58,7 +58,13 @@ function soloLetras(e) {
     }
 }
 
-function soloNumeros(evt) {
+function soloNumeros(e, c) {
+    var key = window.Event ? e.which : e.keyCode
+    return ((key >= 48) && (key <= 57) && (c.length + 1 <= 10) || (key == 8))
+  }
+  
+  
+/*function soloNumeros(evt) {
     if (window.event) {//asignamos el valor de la tecla que se esta presionando a keynum
         keynum = evt.keyCode;
     }
@@ -72,7 +78,35 @@ function soloNumeros(evt) {
     else {
         return false;
     }
-}
+}*/
+function validarCedula() {
+    var cad = document.getElementById("cedula").value;
+    var total = 0;
+    var longitud = cad.length;
+    if (cad !== "" && longitud === 10) {
+      for (i = 0; i < longitud - 1; i++) {
+        if (i % 2 === 0) {
+          var aux = cad.charAt(i) * 2;
+          if (aux > 9) aux -= 9;
+          total += aux;
+        } else {
+          total += parseInt(cad.charAt(i));
+        }
+      }
+      total = total % 10 ? 10 - total % 10 : 0;
+      var aux = cad.charAt(9);
+      if (cad.charAt(9) == total) {
+        document.getElementById("mensajeCedula").innerText = 'La cedula es correcta';
+        cedula.style.borderColor = "blue";
+      } else {
+        document.getElementById("mensajeCedula").innerHTML = 'La cedula es incorrecta';
+        cedula.style.borderColor = "red";
+      }
+  
+    } else {
+     document.getElementById("mensajeCedula").innerHTML = 'escribiendo...';
+    }
+  }
 
 function validarChecbock(){
     

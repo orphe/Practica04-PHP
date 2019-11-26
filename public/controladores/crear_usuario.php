@@ -15,7 +15,7 @@
 
         <?php
         include '../../config/conexionDB.php';
-//trim corta la cadena de derecha/izquierda
+        //trim corta la cadena de derecha/izquierda
         $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]): null;
         $nombres = isset($_POST["nombre"]) ? mb_strtoupper(trim($_POST["nombre"]), 'UTF-8'): null;
         $apellidos = isset($_POST["apellido"]) ? mb_strtoupper(trim($_POST["apellido"]), 'UTF-8'): null;
@@ -24,12 +24,10 @@
         $correo = isset($_POST["correo"]) ? trim($_POST["correo"]): null;
         $fecha_Nacimiento = isset($_POST["fechaNacimiento"]) ? trim($_POST["fechaNacimiento"]): null;  
         $contrasenia = isset($_POST["contrasenia"]) ? trim($_POST["contrasenia"]): null;
-        $rol = "";
+        $rol = " ";
         if (isset($_POST["rol1"])) {
-            echo "se presiono el checkbox usuario";
             $rol = "User";
         } else if (isset($_POST["rol2"])) {
-            echo "se presiono el cbox de admin";
             $rol = "Admin";
         }
        $sql = "INSERT INTO usuario VALUES (0, '$cedula', '$nombres', '$apellidos', '$direccion', '$telefono', 
@@ -37,11 +35,11 @@
   
         if ($conn->query($sql)===TRUE){
             echo "<p>Se han creado los datos correctamente  </p>";
+            
             header("Location:../vista/login.html");
         }
         else {
-
-            if($conn->ermo ==1062){
+            if($conn->errno == 1062){
                 echo "<p class='error'> La persona con la cedula $cedula ya se encuentra registrada en el sistema</p>";
 
             }else{

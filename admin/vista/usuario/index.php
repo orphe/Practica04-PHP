@@ -42,9 +42,9 @@ header("Location: /SistemaDeGestion/public/vista/login.html"); }
                             echo "<td>".$row["menu_correo"]."</td>";
                             echo "<td>".$row["menu_password"]."</td>";
                             echo "<td>".$row["menu_fecha_nacimiento"]."</td>";
-                            echo "<td> <a href='eliminar.php?codigo=" . $row['menu_codigo'] . "'>Eliminar</a> </td>";
-                            echo "<td> <a href='modificar.php?codigo=" . $row['menu_codigo'] . "'>Modificar</a> </td>";
-                            echo "<td> <a href='cambiar_contrasenia.php?codigo=" . $row['menu_codigo'] . "'>Cambiar Contraseña </a> </td>";
+                            echo "<td> <a href='eliminar.php?codigo=" . $row['menu_codigo'] . $ref . "'>Eliminar</a> </td>";
+                            echo "<td> <a href='modificar.php?codigo=" . $row['menu_codigo'] . $ref . "'>Modificar</a> </td>";
+                            echo "<td> <a href='cambiar_contrasenia.php?codigo=" . $row['menu_codigo'] . $ref .  "'>Cambiar Contraseña </a> </td>";
                             echo "</tr>";
                         }                    
                 }else{

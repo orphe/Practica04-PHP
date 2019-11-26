@@ -11,10 +11,11 @@
 </head>
 
 <body >
+    
     <section>
         <div>
             <?php
-            $cone = $_GET["cone"];
+            $conne = $_GET["conne"];
             //echo $cone;
             ?>
             <header align="center">
@@ -42,8 +43,12 @@
                 <br>
                 <br>
                 
-                <label for="coordenadas">Coordenadas</label>
-                <input type="text" name="coordenadas" id="coordenadas" value="" required>
+                <label for="latitud">Latitud</label>
+                <input type="text" name="latitud" id="latitud" value="" required>
+                <br>
+                <br>
+                <label for="longitud">Longitud</label>
+                <input type="text" name="longitud" id="longitud" value="" required>
                 <br>
                 <br>
 
@@ -60,7 +65,7 @@
                 <div>
                 <input class="submit" id="guargar" name="guardar" type="submit" value="Enviar">&nbsp;
                 <input class="reset" id="borrar" name="borrar" type="Reset" value="Borrar">
-                <button type="button" class="btn btn-default"><a href="index_usuario.php?cone='<?php echo $cone; ?>'">CANCELAR</a></button>
+                <button type="button" class="btn btn-default"><a href="indexUser.php?conne='<?php echo $conne; ?>'">CANCELAR</a></button>
                 </div>
                 <br>
             </form>

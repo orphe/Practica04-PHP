@@ -17,7 +17,7 @@ $rolt = $rol["menu_rol"];
         if($rolt == "Admin"){
             header("Location: ../../admin/vista/admin/index.php?=conne='$usuario'");
         }else {
-            header("Location: ../../admin/vista/usuario/index.php?conne='$usuario'"); 
+            header("Location: ../../admin/vista/usuario/indexUser.php?conne='$usuario'"); 
         }
     }
     else {
